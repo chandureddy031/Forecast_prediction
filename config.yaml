@@ -1,0 +1,47 @@
+# Data Configuration
+data:
+  raw_path: "data/raw/data.csv"
+  processed_path: "data/processed/preprocessed_data.csv"
+  n_samples: 10000
+  test_size: 0.2
+
+# Feature Engineering
+features:
+  sequence_length: 60
+  lag_features: [1, 7, 30]
+  rolling_windows: [7, 30]
+
+# Model Configuration
+model:
+  name: "LSTM_TimeSeries"
+  lstm_layers:
+    - units: 128
+      return_sequences: true
+      dropout: 0.2
+    - units: 64
+      return_sequences: true
+      dropout: 0.2
+    - units: 32
+      return_sequences: false
+      dropout: 0.2
+  dense_units: 16
+  learning_rate: 0.001
+  
+# Training Configuration
+training:
+  epochs: 50
+  batch_size: 32
+  validation_split: 0.2
+  early_stopping_patience: 10
+
+# MLflow Configuration
+mlflow:
+  experiment_name: "LSTM_Pipeline"
+  tracking_uri: "mlruns"
+  
+# Paths
+paths:
+  logs: "logs"
+  artifacts: "artifacts"
+  data_raw: "data/raw"
+  data_processed: "data/processed"

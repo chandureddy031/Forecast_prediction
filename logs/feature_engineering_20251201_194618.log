@@ -1,0 +1,7 @@
+2025-12-01 19:46:18,213 - feature_engineering - INFO - Starting feature engineering...
+2025-12-01 19:46:18,266 - feature_engineering - INFO - Loaded preprocessed data with shape: (10000, 4)
+2025-12-01 19:46:18,285 - feature_engineering - INFO - Created engineered features.  New shape: (9970, 11)
+2025-12-01 19:46:19,672 - feature_engineering - INFO - Created sequences - X shape: (9910, 60, 10), y shape: (9910, 10)
+2025-12-01 19:46:19,672 - feature_engineering - INFO - Train set: X=(7928, 60, 10), y=(7928, 10)
+2025-12-01 19:46:19,673 - feature_engineering - INFO - Test set: X=(1982, 60, 10), y=(1982, 10)
+2025-12-01 19:46:19,733 - feature_engineering - INFO - Feature engineering completed

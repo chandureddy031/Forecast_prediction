@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/7bcdcd2aa1774210b03c6380e97d9e2a/artifacts
+end_time: 1764599143941
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 7bcdcd2aa1774210b03c6380e97d9e2a
+run_name: redolent-panda-715
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764599143367
+status: 4
+tags: []
+user_id: lenovo

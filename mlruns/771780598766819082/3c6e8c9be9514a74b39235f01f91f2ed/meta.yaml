@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/3c6e8c9be9514a74b39235f01f91f2ed/artifacts
+end_time: 1764600565928
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 3c6e8c9be9514a74b39235f01f91f2ed
+run_name: beautiful-bear-985
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764600565814
+status: 4
+tags: []
+user_id: lenovo

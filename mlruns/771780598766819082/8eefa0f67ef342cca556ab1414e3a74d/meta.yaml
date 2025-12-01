@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/8eefa0f67ef342cca556ab1414e3a74d/artifacts
+end_time: 1764599240349
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 8eefa0f67ef342cca556ab1414e3a74d
+run_name: mercurial-shrew-937
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764599240147
+status: 4
+tags: []
+user_id: lenovo

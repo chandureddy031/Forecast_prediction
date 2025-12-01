@@ -1,0 +1,3 @@
+2025-12-01 19:46:11,361 - data_ingestion - INFO - Starting data ingestion...
+2025-12-01 19:46:11,464 - data_ingestion - INFO - Data ingestion completed.  Saved 10000 records to data/raw/data.csv
+2025-12-01 19:46:11,464 - data_ingestion - INFO - Data shape: (10000, 4)

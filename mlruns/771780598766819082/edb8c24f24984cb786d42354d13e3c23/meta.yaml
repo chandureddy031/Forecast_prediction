@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/edb8c24f24984cb786d42354d13e3c23/artifacts
+end_time: 1764598800121
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: edb8c24f24984cb786d42354d13e3c23
+run_name: enthused-stoat-381
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764598799950
+status: 4
+tags: []
+user_id: lenovo

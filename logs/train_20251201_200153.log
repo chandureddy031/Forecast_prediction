@@ -1,0 +1,6 @@
+2025-12-01 20:01:53,769 - train - INFO - Starting model training...
+2025-12-01 20:01:53,798 - train - INFO - Loaded training data - X_train: (7928, 60, 10), y_train: (7928, 10)
+2025-12-01 20:01:54,059 - train - INFO - Built LSTM model
+2025-12-01 20:01:54,089 - train - INFO - Training model...
+2025-12-01 20:11:20,532 - train - INFO - Saved model to artifacts/model.keras
+2025-12-01 20:11:20,534 - train - INFO - Training completed successfully

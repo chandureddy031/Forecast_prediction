@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/7921ac2e17034da49ba363abdb81d26b/artifacts
+end_time: 1764598704725
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 7921ac2e17034da49ba363abdb81d26b
+run_name: omniscient-sheep-784
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764598704541
+status: 4
+tags: []
+user_id: lenovo

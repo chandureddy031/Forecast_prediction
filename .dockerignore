@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*. egg-info/
+.installed. cfg
+*.egg
+
+# Data and artifacts (optional - remove if you want to include them)
+logs/*
+data/raw/*
+data/processed/*
+artifacts/*. keras
+artifacts/*.h5
+artifacts/*. npy
+mlruns/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# DVC
+.dvc/
+*. dvc
+
+# Documentation
+README.md
+*. md
+docs/

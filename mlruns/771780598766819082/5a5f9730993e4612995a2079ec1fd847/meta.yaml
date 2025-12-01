@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/5a5f9730993e4612995a2079ec1fd847/artifacts
+end_time: 1764603826241
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 5a5f9730993e4612995a2079ec1fd847
+run_name: incongruous-newt-531
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764603826144
+status: 4
+tags: []
+user_id: lenovo

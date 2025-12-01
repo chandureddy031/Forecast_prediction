@@ -1,0 +1,6 @@
+2025-12-01 19:46:15,815 - data_preprocessing - INFO - Starting data preprocessing...
+2025-12-01 19:46:15,890 - data_preprocessing - INFO - Loaded raw data with shape: (10000, 4)
+2025-12-01 19:46:15,906 - data_preprocessing - INFO - Handled missing values
+2025-12-01 19:46:15,911 - data_preprocessing - INFO - Removed outliers.  New shape: (10000, 4)
+2025-12-01 19:46:15,923 - data_preprocessing - INFO - Saved scaler to artifacts/scaler.pkl
+2025-12-01 19:46:16,024 - data_preprocessing - INFO - Preprocessing completed. Saved to data/processed/preprocessed_data.csv

@@ -1,0 +1,47 @@
+stages:
+  data_ingestion:
+    cmd: python data_ingestion.py
+    outs:
+      - data/raw/data.csv
+
+  data_preprocessing:
+    cmd: python data_preprocessing.py
+    deps:
+      - data/raw/data.csv
+    outs:
+      - data/processed/preprocessed_data.csv
+      - artifacts/scaler.pkl
+
+  feature_engineering:
+    cmd: python feature_engineering.py
+    deps:
+      - data/processed/preprocessed_data.csv
+    outs:
+      - artifacts/X_train.npy
+      - artifacts/X_test.npy
+      - artifacts/y_train.npy
+      - artifacts/y_test.npy
+      - artifacts/feature_scaler.pkl
+      - artifacts/feature_columns. pkl
+
+  train:
+    cmd: python train.py
+    deps:
+      - artifacts/X_train.npy
+      - artifacts/y_train.npy
+      - artifacts/X_test.npy
+      - artifacts/y_test.npy
+    outs:
+      - artifacts/model.keras
+      - artifacts/best_model.keras
+      - artifacts/training_history.json
+
+  evaluate:
+    cmd: python data_evaluation.py
+    deps:
+      - artifacts/model.keras
+      - artifacts/X_test.npy
+      - artifacts/y_test.npy
+    metrics:
+      - artifacts/metrics.json:
+          cache: false

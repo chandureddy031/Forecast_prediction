@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/909e5efe64bb46f8b7dbba33645a1996/artifacts
+end_time: 1764598929778
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 909e5efe64bb46f8b7dbba33645a1996
+run_name: dashing-hound-301
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764598929227
+status: 4
+tags: []
+user_id: lenovo

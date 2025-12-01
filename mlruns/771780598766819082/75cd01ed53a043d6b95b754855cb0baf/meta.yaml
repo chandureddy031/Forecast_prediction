@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/lenovo/Desktop/project/project/mlruns/771780598766819082/75cd01ed53a043d6b95b754855cb0baf/artifacts
+end_time: 1764599290818
+entry_point_name: ''
+experiment_id: '771780598766819082'
+lifecycle_stage: active
+run_id: 75cd01ed53a043d6b95b754855cb0baf
+run_name: righteous-asp-868
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764599290330
+status: 4
+tags: []
+user_id: lenovo
