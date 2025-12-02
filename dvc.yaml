@@ -1,47 +1,51 @@
-stages:
-  data_ingestion:
-    cmd: python data_ingestion.py
-    outs:
-      - data/raw/data.csv
+name: ML Pipeline CI
 
-  data_preprocessing:
-    cmd: python data_preprocessing.py
-    deps:
-      - data/raw/data.csv
-    outs:
-      - data/processed/preprocessed_data.csv
-      - artifacts/scaler.pkl
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-  feature_engineering:
-    cmd: python feature_engineering.py
-    deps:
-      - data/processed/preprocessed_data.csv
-    outs:
-      - artifacts/X_train.npy
-      - artifacts/X_test.npy
-      - artifacts/y_train.npy
-      - artifacts/y_test.npy
-      - artifacts/feature_scaler.pkl
-      - artifacts/feature_columns. pkl
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
 
-  train:
-    cmd: python train.py
-    deps:
-      - artifacts/X_train.npy
-      - artifacts/y_train.npy
-      - artifacts/X_test.npy
-      - artifacts/y_test.npy
-    outs:
-      - artifacts/model.keras
-      - artifacts/best_model.keras
-      - artifacts/training_history.json
+    steps:
 
-  evaluate:
-    cmd: python data_evaluation.py
-    deps:
-      - artifacts/model.keras
-      - artifacts/X_test.npy
-      - artifacts/y_test.npy
-    metrics:
-      - artifacts/metrics.json:
-          cache: false
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Python
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install dvc[dvc]
+
+    # Step 4: Pull DVC data (if needed)
+    - name: DVC Pull
+      if: always()
+      run: |
+        dvc pull || echo "No remote or no data. Skipping DVC pull."
+
+    # Step 5: Run DVC pipeline
+    - name: Run DVC pipeline
+      run: |
+        dvc repro
+
+    # Step 6: Upload artifacts
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: pipeline-artifacts
+        path: |
+          artifacts/
+          data/
