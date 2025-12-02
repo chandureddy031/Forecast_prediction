@@ -13,35 +13,47 @@ jobs:
 
     steps:
 
-    # Step 1: Checkout the repository
+    # ----------------------------------------
+    # 1. Checkout repository
+    # ----------------------------------------
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Step 2: Set up Python
+    # ----------------------------------------
+    # 2. Set up Python
+    # ----------------------------------------
     - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
         python-version: "3.10"
 
-    # Step 3: Install dependencies
+    # ----------------------------------------
+    # 3. Install dependencies + Stable DVC
+    # ----------------------------------------
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install dvc[dvc]
+        pip install "dvc[all]==3.42.0"
 
-    # Step 4: Pull DVC data (if needed)
+    # ----------------------------------------
+    # 4. DVC Pull (optional – safe)
+    # ----------------------------------------
     - name: DVC Pull
-      if: always()
       run: |
-        dvc pull || echo "No remote or no data. Skipping DVC pull."
+        dvc pull || echo "No remote data found or no DVC remote configured."
 
-    # Step 5: Run DVC pipeline
-    - name: Run DVC pipeline
+    # ----------------------------------------
+    # 5. Run DVC pipeline
+    # ----------------------------------------
+    - name: Run DVC Pipeline
       run: |
+        echo "Running DVC Repro..."
         dvc repro
 
-    # Step 6: Upload artifacts
+    # ----------------------------------------
+    # 6. Upload Artifacts
+    # ----------------------------------------
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
