@@ -1,6 +1,5 @@
 name: ML Pipeline CI
 
-# Trigger workflow on push, pull request, or manual run
 on:
   push:
     branches: [ main ]
@@ -13,49 +12,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     # Step 1: Checkout the repository
-    - name: Checkout repo
-      uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     # Step 2: Set up Python
     - name: Set up Python 3.10
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: "3.10"
 
-    # Step 3: Cache pip dependencies
-    - name: Cache pip
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-
-    # Step 4: Install dependencies
+    # Step 3: Install dependencies
     - name: Install dependencies
       run: |
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install dvc[dvc]
 
-    # Step 5: Create necessary directories
-    - name: Create directories
+    # Step 4: Pull DVC data (if needed)
+    - name: DVC Pull
+      if: always()
       run: |
-        mkdir -p logs data/raw data/processed artifacts
+        dvc pull || echo "No remote or no data. Skipping DVC pull."
 
-    # Step 6: Run ML pipeline scripts
-    - name: Run data ingestion
-      run: python data_ingestion.py
+    # Step 5: Run DVC pipeline
+    - name: Run DVC pipeline
+      run: |
+        dvc repro
 
-    - name: Run data preprocessing
-      run: python data_preprocessing.py
-
-    - name: Run feature engineering
-      run: python feature_engineering.py
-
-    # Step 7: (Optional) Save artifacts like logs
-    - name: Upload logs
-      uses: actions/upload-artifact@v3
+    # Step 6: Upload artifacts
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
       with:
-        name: logs
-        path: logs/
+        name: pipeline-artifacts
+        path: |
+          artifacts/
+          data/
