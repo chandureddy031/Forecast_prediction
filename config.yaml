@@ -3,7 +3,7 @@ data:
   raw_path: "data/raw/data.csv"
   processed_path: "data/processed/preprocessed_data.csv"
   n_samples: 10000
-  test_size: 0.2
+  test_size: 0.3
 
 # Feature Engineering
 features:

@@ -21,7 +21,7 @@ def build_lstm_model(input_shape):
         LSTM(32, return_sequences=False),
         Dropout(0.2),
         Dense(16, activation='relu'),
-        Dense(input_shape[1])  # Predict all features
+        Dense(input_shape[1])  
     ])
     
     model.compile(

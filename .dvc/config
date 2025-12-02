@@ -1,0 +1,6 @@
+[core]
+    remote = myremote
+['remote "localstore"']
+    url = C:/Users/lenovo/Desktop/project/dvc_storage
+['remote "myremote"']
+    url = azure://dvccontainer/dvcstore
